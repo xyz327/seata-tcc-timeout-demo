@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: seata-tm
+seata:
+  # 是否启用 seata
+  enabled: true
+  # seata 的应用 id 默认为 ${spring.application.name}
+  # 事务分组 默认为 ${seata.application-id}-seata-service-group
+  tx-service-group: seata-service-group
+  # 是否代理数据源 AT 模式
+  # 是否使用 AT 默认 默认为 true
+  enableAutoDataSourceProxy: false
+  # 注册中心配置
+  registry:
+    type: file
+  service:
+    grouplist:
+      # 直接指定 seata server 的地址
+      default: 127.0.0.1:8091
+    vgroup-mapping:
+      # 这里的key 要和上面事务分组一致  value 默认为default
+      seata-service-group: default
